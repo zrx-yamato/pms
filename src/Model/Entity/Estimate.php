@@ -40,15 +40,11 @@ class Estimate extends Entity
         'document' => true,
         'price' => true,
         'project_id' => true,
-        'add_user_id' => true,
-        'update_user_id' => true,
         'status_id' => true,
         'is_delete' => true,
         'create_at' => true,
         'update_at' => true,
         'project' => true,
-        'add_user' => true,
-        'update_user' => true,
         'status' => true
     ];
 }

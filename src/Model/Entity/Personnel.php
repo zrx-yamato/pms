@@ -10,14 +10,13 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $mail
  * @property int $company_id
- * @property int $task_id
  * @property bool $is_delete
  * @property \Cake\I18n\FrozenTime $create_at
  * @property \Cake\I18n\FrozenTime $update_at
  *
  * @property \App\Model\Entity\Company $company
- * @property \App\Model\Entity\Task $task
  * @property \App\Model\Entity\Project[] $projects
+ * @property \App\Model\Entity\Task[] $tasks
  */
 class Personnel extends Entity
 {
@@ -35,12 +34,11 @@ class Personnel extends Entity
         'name' => true,
         'mail' => true,
         'company_id' => true,
-        'task_id' => true,
         'is_delete' => true,
         'create_at' => true,
         'update_at' => true,
         'company' => true,
-        'task' => true,
-        'projects' => true
+        'projects' => true,
+        'tasks' => true
     ];
 }

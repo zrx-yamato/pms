@@ -23,8 +23,6 @@
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('price') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('add_user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('update_user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('status_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('is_delete') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('create_at') ?></th>
@@ -39,8 +37,6 @@
                 <td><?= h($estimate->title) ?></td>
                 <td><?= $this->Number->format($estimate->price) ?></td>
                 <td><?= $estimate->has('project') ? $this->Html->link($estimate->project->title, ['controller' => 'Projects', 'action' => 'view', $estimate->project->id]) : '' ?></td>
-                <td><?= $this->Number->format($estimate->add_user_id) ?></td>
-                <td><?= $this->Number->format($estimate->update_user_id) ?></td>
                 <td><?= $estimate->has('status') ? $this->Html->link($estimate->status->name, ['controller' => 'Statuses', 'action' => 'view', $estimate->status->id]) : '' ?></td>
                 <td><?= h($estimate->is_delete) ?></td>
                 <td><?= h($estimate->create_at) ?></td>

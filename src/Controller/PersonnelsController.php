@@ -10,7 +10,7 @@ use App\Controller\AppController;
  *
  * @method \App\Model\Entity\Personnel[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class PersonnelsController extends BaseController
+class PersonnelsController extends AppController
 {
 
     /**
@@ -21,7 +21,7 @@ class PersonnelsController extends BaseController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Companies', 'Tasks']
+            'contain' => ['Companies']
         ];
         $personnels = $this->paginate($this->Personnels);
 
@@ -38,7 +38,7 @@ class PersonnelsController extends BaseController
     public function view($id = null)
     {
         $personnel = $this->Personnels->get($id, [
-            'contain' => ['Companies', 'Tasks', 'Projects']
+            'contain' => ['Companies', 'Projects', 'Tasks']
         ]);
 
         $this->set('personnel', $personnel);
@@ -54,6 +54,7 @@ class PersonnelsController extends BaseController
         $personnel = $this->Personnels->newEntity();
         if ($this->request->is('post')) {
             $personnel = $this->Personnels->patchEntity($personnel, $this->request->getData());
+            $personnel->create_at = new \DateTime('now');
             if ($this->Personnels->save($personnel)) {
                 $this->Flash->success(__('The personnel has been saved.'));
 
@@ -62,8 +63,7 @@ class PersonnelsController extends BaseController
             $this->Flash->error(__('The personnel could not be saved. Please, try again.'));
         }
         $companies = $this->Personnels->Companies->find('list', ['limit' => 200]);
-        $tasks = $this->Personnels->Tasks->find('list', ['limit' => 200]);
-        $this->set(compact('personnel', 'companies', 'tasks'));
+        $this->set(compact('personnel', 'companies'));
     }
 
     /**
@@ -80,6 +80,7 @@ class PersonnelsController extends BaseController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $personnel = $this->Personnels->patchEntity($personnel, $this->request->getData());
+            $personnel->update_at = new \DateTime('now');
             if ($this->Personnels->save($personnel)) {
                 $this->Flash->success(__('The personnel has been saved.'));
 
@@ -88,8 +89,7 @@ class PersonnelsController extends BaseController
             $this->Flash->error(__('The personnel could not be saved. Please, try again.'));
         }
         $companies = $this->Personnels->Companies->find('list', ['limit' => 200]);
-        $tasks = $this->Personnels->Tasks->find('list', ['limit' => 200]);
-        $this->set(compact('personnel', 'companies', 'tasks'));
+        $this->set(compact('personnel', 'companies'));
     }
 
     /**

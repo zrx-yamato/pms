@@ -44,6 +44,7 @@ class Task extends Entity
         'real_time' => true,
         'status_id' => true,
         'project_id' => true,
+        'personnel_id' => true,
         'is_delete' => true,
         'create_at' => true,
         'update_at' => true,
@@ -51,8 +52,6 @@ class Task extends Entity
         'add_update_id' => true,
         'status' => true,
         'project' => true,
-        'add_user' => true,
-        'add_update' => true,
         'personnels' => true
     ];
 }

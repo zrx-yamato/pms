@@ -18,8 +18,8 @@ class PersonnelsControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.personnels',
         'app.companies',
-        'app.tasks',
-        'app.projects'
+        'app.projects',
+        'app.tasks'
     ];
 
     /**

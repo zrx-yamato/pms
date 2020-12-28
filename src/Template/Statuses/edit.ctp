@@ -26,9 +26,6 @@
         <legend><?= __('Edit Status') ?></legend>
         <?php
             echo $this->Form->control('name');
-            echo $this->Form->control('is_delete');
-            echo $this->Form->control('create_at');
-            echo $this->Form->control('update_at');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

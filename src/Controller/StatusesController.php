@@ -51,6 +51,7 @@ class StatusesController extends BaseController
         $status = $this->Statuses->newEntity();
         if ($this->request->is('post')) {
             $status = $this->Statuses->patchEntity($status, $this->request->getData());
+            $status->create_at = new \DateTime('now');
             if ($this->Statuses->save($status)) {
                 $this->Flash->success(__('The status has been saved.'));
 
@@ -75,6 +76,7 @@ class StatusesController extends BaseController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $status = $this->Statuses->patchEntity($status, $this->request->getData());
+            $status->update_at = new \DateTime('now');
             if ($this->Statuses->save($status)) {
                 $this->Flash->success(__('The status has been saved.'));
 

@@ -21,7 +21,7 @@ class EstimatesController extends BaseController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Projects', 'AddUsers', 'UpdateUsers', 'Statuses']
+            'contain' => ['Projects', 'Statuses']
         ];
         $estimates = $this->paginate($this->Estimates);
 

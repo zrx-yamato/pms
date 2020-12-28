@@ -48,14 +48,6 @@ class TasksTable extends Table
             'foreignKey' => 'project_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('AddUsers', [
-            'foreignKey' => 'add_user_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('AddUpdates', [
-            'foreignKey' => 'add_update_id',
-            'joinType' => 'INNER'
-        ]);
         $this->hasMany('Personnels', [
             'foreignKey' => 'task_id'
         ]);
@@ -81,35 +73,18 @@ class TasksTable extends Table
 
         $validator
             ->scalar('content')
-            ->requirePresence('content', 'create')
-            ->notEmpty('content');
+            ->allowEmpty('content', 'create');
 
         $validator
             ->scalar('assumption_time')
             ->maxLength('assumption_time', 10)
-            ->requirePresence('assumption_time', 'create')
-            ->notEmpty('assumption_time');
+            ->allowEmpty('assumption_time');
 
         $validator
             ->scalar('real_time')
             ->maxLength('real_time', 10)
-            ->requirePresence('real_time', 'create')
-            ->notEmpty('real_time');
+            ->allowEmpty('real_time');
 
-        $validator
-            ->boolean('is_delete')
-            ->requirePresence('is_delete', 'create')
-            ->notEmpty('is_delete');
-
-        $validator
-            ->dateTime('create_at')
-            ->requirePresence('create_at', 'create')
-            ->notEmpty('create_at');
-
-        $validator
-            ->dateTime('update_at')
-            ->requirePresence('update_at', 'create')
-            ->notEmpty('update_at');
 
         return $validator;
     }
@@ -125,8 +100,6 @@ class TasksTable extends Table
     {
         $rules->add($rules->existsIn(['status_id'], 'Statuses'));
         $rules->add($rules->existsIn(['project_id'], 'Projects'));
-        $rules->add($rules->existsIn(['add_user_id'], 'AddUsers'));
-        $rules->add($rules->existsIn(['add_update_id'], 'AddUpdates'));
 
         return $rules;
     }

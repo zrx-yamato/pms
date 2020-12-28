@@ -43,14 +43,6 @@ class EstimatesTable extends Table
             'foreignKey' => 'project_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('AddUsers', [
-            'foreignKey' => 'add_user_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('UpdateUsers', [
-            'foreignKey' => 'update_user_id',
-            'joinType' => 'INNER'
-        ]);
         $this->belongsTo('Statuses', [
             'foreignKey' => 'status_id',
             'joinType' => 'INNER'
@@ -85,21 +77,6 @@ class EstimatesTable extends Table
             ->requirePresence('price', 'create')
             ->notEmpty('price');
 
-        $validator
-            ->boolean('is_delete')
-            ->requirePresence('is_delete', 'create')
-            ->notEmpty('is_delete');
-
-        $validator
-            ->dateTime('create_at')
-            ->requirePresence('create_at', 'create')
-            ->notEmpty('create_at');
-
-        $validator
-            ->dateTime('update_at')
-            ->requirePresence('update_at', 'create')
-            ->notEmpty('update_at');
-
         return $validator;
     }
 
@@ -113,8 +90,6 @@ class EstimatesTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['project_id'], 'Projects'));
-        $rules->add($rules->existsIn(['add_user_id'], 'AddUsers'));
-        $rules->add($rules->existsIn(['update_user_id'], 'UpdateUsers'));
         $rules->add($rules->existsIn(['status_id'], 'Statuses'));
 
         return $rules;

@@ -21,7 +21,6 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('is_delete') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('create_at') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('update_at') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -32,7 +31,6 @@
             <tr>
                 <td><?= $this->Number->format($status->id) ?></td>
                 <td><?= h($status->name) ?></td>
-                <td><?= h($status->is_delete) ?></td>
                 <td><?= h($status->create_at) ?></td>
                 <td><?= h($status->update_at) ?></td>
                 <td class="actions">

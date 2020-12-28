@@ -21,7 +21,7 @@ class TasksController extends BaseController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Statuses', 'Projects', 'AddUsers', 'AddUpdates']
+            'contain' => ['Statuses', 'Projects']
         ];
         $tasks = $this->paginate($this->Tasks);
 
@@ -63,9 +63,7 @@ class TasksController extends BaseController
         }
         $statuses = $this->Tasks->Statuses->find('list', ['limit' => 200]);
         $projects = $this->Tasks->Projects->find('list', ['limit' => 200]);
-        $addUsers = $this->Tasks->AddUsers->find('list', ['limit' => 200]);
-        $addUpdates = $this->Tasks->AddUpdates->find('list', ['limit' => 200]);
-        $this->set(compact('task', 'statuses', 'projects', 'addUsers', 'addUpdates'));
+        $this->set(compact('task', 'statuses', 'projects'));
     }
 
     /**
@@ -93,7 +91,7 @@ class TasksController extends BaseController
         $projects = $this->Tasks->Projects->find('list', ['limit' => 200]);
         $addUsers = $this->Tasks->AddUsers->find('list', ['limit' => 200]);
         $addUpdates = $this->Tasks->AddUpdates->find('list', ['limit' => 200]);
-        $this->set(compact('task', 'statuses', 'projects', 'addUsers', 'addUpdates'));
+        $this->set(compact('task', 'statuses', 'projects'));
     }
 
     /**

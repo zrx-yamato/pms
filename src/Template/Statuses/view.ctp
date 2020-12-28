@@ -21,12 +21,12 @@
     <h3><?= h($status->name) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($status->name) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($status->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($status->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Create At') ?></th>

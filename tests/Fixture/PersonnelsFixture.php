@@ -21,7 +21,6 @@ class PersonnelsFixture extends TestFixture
         'name' => ['type' => 'string', 'length' => 60, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'mail' => ['type' => 'string', 'length' => 254, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'company_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'task_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'is_delete' => ['type' => 'boolean', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'create_at' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'update_at' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
@@ -48,10 +47,9 @@ class PersonnelsFixture extends TestFixture
                 'name' => 'Lorem ipsum dolor sit amet',
                 'mail' => 'Lorem ipsum dolor sit amet',
                 'company_id' => 1,
-                'task_id' => 1,
                 'is_delete' => 1,
-                'create_at' => '2020-12-21 00:18:25',
-                'update_at' => '2020-12-21 00:18:25'
+                'create_at' => '2020-12-28 16:42:50',
+                'update_at' => '2020-12-28 16:42:50'
             ],
         ];
         parent::init();

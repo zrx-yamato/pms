@@ -10,10 +10,10 @@
         <li><?= $this->Html->link(__('New Personnel'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Companies'), ['controller' => 'Companies', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Company'), ['controller' => 'Companies', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Tasks'), ['controller' => 'Tasks', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Task'), ['controller' => 'Tasks', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Projects'), ['controller' => 'Projects', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Project'), ['controller' => 'Projects', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Tasks'), ['controller' => 'Tasks', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Task'), ['controller' => 'Tasks', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="personnels index large-9 medium-8 columns content">
@@ -25,8 +25,6 @@
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('mail') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('company_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('task_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('is_delete') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('create_at') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('update_at') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -39,8 +37,6 @@
                 <td><?= h($personnel->name) ?></td>
                 <td><?= h($personnel->mail) ?></td>
                 <td><?= $personnel->has('company') ? $this->Html->link($personnel->company->name, ['controller' => 'Companies', 'action' => 'view', $personnel->company->id]) : '' ?></td>
-                <td><?= $personnel->has('task') ? $this->Html->link($personnel->task->title, ['controller' => 'Tasks', 'action' => 'view', $personnel->task->id]) : '' ?></td>
-                <td><?= h($personnel->is_delete) ?></td>
                 <td><?= h($personnel->create_at) ?></td>
                 <td><?= h($personnel->update_at) ?></td>
                 <td class="actions">

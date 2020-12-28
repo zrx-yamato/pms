@@ -27,9 +27,6 @@
             echo $this->Form->control('real_time');
             echo $this->Form->control('status_id', ['options' => $statuses]);
             echo $this->Form->control('project_id', ['options' => $projects]);
-            echo $this->Form->control('is_delete');
-            echo $this->Form->control('create_at');
-            echo $this->Form->control('update_at');
             echo $this->Form->control('add_user_id');
             echo $this->Form->control('add_update_id');
         ?>
