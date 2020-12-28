@@ -73,7 +73,6 @@ class CompaniesTable extends Table
             ->maxLength('address', 161)
             ->allowEmpty('address');
             
-
         return $validator;
     }
 }
